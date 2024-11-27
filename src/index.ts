@@ -1,7 +1,13 @@
-import { User } from './User';
+import { Attributes } from './Attributes';
+import { UserProps } from './framework/Interfaces';
+import {User} from './User'
 
-const john = new User({id: "9f86"})
-john.fetch()
+const user = new User ({id: "5", name: 'john', age: 34})
 
-const alice = new User({name: 'Alice', age: 23})
-alice.save()
+//const id = attrs.get('id')
+//onst age = attrs.get('age')
+
+console.log(user.get('name'))
+user.on('change', () => console.log('changement'))
+user.trigger('change')
+user.save()
